@@ -12,8 +12,6 @@ body {
 
 canvas {
     position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .card {
@@ -25,61 +23,47 @@ canvas {
     text-align: center;
     max-width: 520px;
     box-shadow: 0 0 40px rgba(0,255,150,0.3);
-    animation: fadeIn 2s ease;
     z-index: 2;
 }
 
-.title {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.romantic-text {
-    margin-bottom: 25px;
-    line-height: 1.6;
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-button {
-    padding: 15px 40px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin: 10px;
-    transition: 0.3s ease;
-}
-
-#yesBtn {
-    background: #ff4d6d;
-    color: white;
-    box-shadow: 0 0 20px #ff4d6d;
-}
-
-#yesBtn:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 40px #ff4d6d;
-}
-
-#noBtn {
-    background: white;
-    color: #065f46;
-    position: relative;
-}
-
-.hidden {
+.level {
     display: none;
 }
 
-.finalMessage {
-    font-size: 2.4rem;
-    animation: pop 0.8s ease forwards;
+.level.active {
+    display: block;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+    background: #ff4d6d;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.fire-container span {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: block;
+    margin: 5px;
+}
+
+.fire-container span:hover {
+    transform: scale(1.2);
+}
+
+.finalMessage {
+    font-size: 2rem;
+    animation: pop 0.8s ease forwards;
 }
 
 @keyframes pop {
