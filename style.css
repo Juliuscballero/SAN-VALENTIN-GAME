@@ -5,16 +5,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
 }
 
 .card {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.35);
     padding: 40px;
     border-radius: 20px;
     text-align: center;
-    max-width: 500px;
+    max-width: 520px;
+    width: 90%;
+    box-sizing: border-box;
 }
 
 .level {
@@ -34,6 +36,7 @@ button {
     background: #ff4d6d;
     color: white;
     font-weight: bold;
+    transition: 0.3s ease;
 }
 
 button:hover {
@@ -68,3 +71,4 @@ button:hover {
     from { opacity: 1; transform: scale(1); }
     to { opacity: 0; transform: scale(1.5) translateY(-150px); }
 }
+
