@@ -7,16 +7,31 @@ body {
     align-items: center;
     min-height: 100vh;
     color: white;
+    transition: 0.6s ease;
+}
+
+#background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,255,150,0.2), transparent);
+    animation: pulse 4s infinite alternate;
+    z-index: 0;
+}
+
+@keyframes pulse {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
 }
 
 .card {
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0.4);
     padding: 40px;
     border-radius: 20px;
     text-align: center;
     max-width: 520px;
     width: 90%;
-    box-sizing: border-box;
+    z-index: 2;
 }
 
 .level {
@@ -28,7 +43,7 @@ body {
 }
 
 button {
-    padding: 10px 25px;
+    padding: 12px 30px;
     margin: 10px;
     border-radius: 20px;
     border: none;
@@ -50,18 +65,18 @@ button:hover {
     margin: 5px;
 }
 
-#explosionContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+.finalText {
+    animation: pop 0.8s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 .explosionText {
-    position: absolute;
-    font-size: 18px;
+    position: fixed;
+    font-size: 20px;
     font-weight: bold;
     animation: explode 2s forwards;
     color: #00ff99;
@@ -69,6 +84,22 @@ button:hover {
 
 @keyframes explode {
     from { opacity: 1; transform: scale(1); }
-    to { opacity: 0; transform: scale(1.5) translateY(-150px); }
+    to { opacity: 0; transform: scale(1.8) translateY(-200px); }
 }
 
+.fireMode {
+    background: linear-gradient(135deg, #7f0000, #ff0000);
+}
+
+.officialText {
+    position: fixed;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    animation: officialPop 1s ease;
+}
+
+@keyframes officialPop {
+    from { transform: scale(0.3); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
