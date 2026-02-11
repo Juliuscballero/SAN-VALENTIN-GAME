@@ -15,17 +15,21 @@ function selectFire(level) {
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 
-noBtn.addEventListener("mouseover", () => {
-    noBtn.style.position = "absolute";
-    noBtn.style.left = Math.random() * 80 + "%";
-    noBtn.style.top = Math.random() * 80 + "%";
-});
+if (noBtn) {
+    noBtn.addEventListener("mouseover", () => {
+        noBtn.style.position = "absolute";
+        noBtn.style.left = Math.random() * 80 + "%";
+        noBtn.style.top = Math.random() * 80 + "%";
+    });
+}
 
-yesBtn.addEventListener("click", () => {
-    document.querySelectorAll(".level").forEach(l => l.classList.remove("active"));
-    document.getElementById("finalScreen").classList.add("active");
-    startExplosion();
-});
+if (yesBtn) {
+    yesBtn.addEventListener("click", () => {
+        document.querySelectorAll(".level").forEach(l => l.classList.remove("active"));
+        document.getElementById("finalScreen").classList.add("active");
+        startExplosion();
+    });
+}
 
 function startExplosion() {
     const words = ["IRIS 💚", "YAM 💚", "RABANITO 💚", "MI AMOR 💚", "MI MUJER 💚"];
@@ -52,4 +56,15 @@ function ultimateAccept() {
     document.body.appendChild(official);
 
     setTimeout(() => official.remove(), 3000);
+}
+
+function muakMode() {
+    const message = document.createElement("div");
+    message.classList.add("muakMessage");
+    message.innerText = "El domingo me como tu desa, pelón pelón como siempre 😏🔥";
+    document.body.appendChild(message);
+
+    setTimeout(() => {
+        message.remove();
+    }, 3000);
 }
