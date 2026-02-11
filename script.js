@@ -12,28 +12,35 @@ function selectFire(level) {
     document.getElementById("fireResult").innerText = text;
 }
 
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
+// BOTONES
+document.addEventListener("DOMContentLoaded", function () {
 
-if (noBtn) {
-    noBtn.addEventListener("mouseover", () => {
-        noBtn.style.position = "absolute";
-        noBtn.style.left = Math.random() * 80 + "%";
-        noBtn.style.top = Math.random() * 80 + "%";
-    });
-}
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
 
-if (yesBtn) {
-    yesBtn.addEventListener("click", () => {
-        document.querySelectorAll(".level").forEach(l => l.classList.remove("active"));
-        document.getElementById("finalScreen").classList.add("active");
-        startExplosion();
-    });
-}
+    if (noBtn) {
+        noBtn.addEventListener("mouseover", () => {
+            noBtn.style.position = "absolute";
+            noBtn.style.left = Math.random() * 80 + "%";
+            noBtn.style.top = Math.random() * 80 + "%";
+        });
+    }
 
+    if (yesBtn) {
+        yesBtn.addEventListener("click", () => {
+            document.querySelectorAll(".level").forEach(l => l.classList.remove("active"));
+            document.getElementById("finalScreen").classList.add("active");
+            startExplosion();
+        });
+    }
+
+});
+
+// EXPLOSIÓN DE NOMBRES
 function startExplosion() {
     const words = ["IRIS 💚", "YAM 💚", "RABANITO 💚", "MI AMOR 💚", "MI MUJER 💚"];
-    for (let i = 0; i < 25; i++) {
+
+    for (let i = 0; i < 30; i++) {
         const text = document.createElement("div");
         text.classList.add("explosionText");
         text.innerText = words[Math.floor(Math.random() * words.length)];
@@ -44,9 +51,13 @@ function startExplosion() {
     }
 }
 
+// BOTÓN FINAL ACEPTO
 function ultimateAccept() {
+
+    // Cambiar fondo a incendio
     document.body.classList.add("fireMode");
 
+    // Texto OFICIAL gigante
     const official = document.createElement("div");
     official.classList.add("officialText");
     official.innerText = "OFICIAL 💚🔥";
@@ -55,14 +66,21 @@ function ultimateAccept() {
     official.style.transform = "translate(-50%, -50%)";
     document.body.appendChild(official);
 
+    startExplosion();
+
     setTimeout(() => official.remove(), 3000);
 }
 
+// BOTÓN MUAK
 function muakMode() {
+
     const message = document.createElement("div");
     message.classList.add("muakMessage");
     message.innerText = "El domingo me como tu desa, pelón pelón como siempre 😏🔥";
+
     document.body.appendChild(message);
+
+    startExplosion();
 
     setTimeout(() => {
         message.remove();
